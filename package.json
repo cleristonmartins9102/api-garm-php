@@ -1,0 +1,26 @@
+{
+  "name": "zoho",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./vendor/bin/phpunit Tests --color",
+    "test:watch": "watch 'npm run --silent test' ."  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.23.0"
+  },
+  "devDependencies": {
+    "watch": "^1.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/cleriston.martins/gestao_portuaria_back.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://gitlab.com/cleriston.martins/gestao_portuaria_back/issues"
+  },
+  "homepage": "https://gitlab.com/cleriston.martins/gestao_portuaria_back#readme"
+}

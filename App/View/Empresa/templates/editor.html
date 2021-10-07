@@ -1,0 +1,100 @@
+<div class="card center" alin style="border:1px solid rgb(11,90,128)">
+  <div class="card-header text-white">
+    <span>Cadastro de Pessoa</span>
+  </div>
+  <form data-toggle="validator" role="form" class='form'>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <div class="col">
+              <div class="form-group" [ngClass]="{'has-error': !nome.valid}">
+                <label for="form_name">Nome *</label>
+                <input id="requerido" type="text" name="nome" class="form-control" placeholder="Entre com o seu nome *" required="required" data-error="Nome é requerido." 
+                [(ngModel)]="nome"/>
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_name">Endereço{{nome}}
+                   *</label>
+                <input id="form_name" type="text" name="name" class="form-control" placeholder="Entre com o seu endereço *" required="required" data-error="Firstname is required.">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label for="form_name">Número *</label>
+                <input id="form_name" type="text" name="name" class="form-control" placeholder="Número *" required="required" data-error="Firstname is required.">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="form_name">Cep *</label>
+                <input id="form_name" type="text" name="name" class="form-control" placeholder="Cep *" required="required" data-error="Firstname is required.">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_name">Complemento *</label>
+                <input id="form_name" type="text" name="name" class="form-control is-valid" placeholder="Complemento *" required="required" data-error="Firstname is required.">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_name">Bairro *</label>
+                <input id="form_name" type="text" name="name" class="form-control" placeholder="Bairro *" required="required" data-error="Firstname is required.">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_name">Estado *</label>
+                <input id="form_name" type="text" name="name" class="form-control" placeholder="Estado *" required="required" data-error="Firstname is required.">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_name">Cidade *</label>
+                <input id="form_name" type="text" name="name" class="form-control" placeholder="Cidade *" required="required" data-error="Firstname is required.">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row row-tp">
+            <div class="col-md-4">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" value="option1" checked ng-click="pnl_t_p_cng(ui.pnl_t_p_cng.pnlCPF())">
+                <label class="form-check-label" for="exampleRadios1">Pessoa Fisica</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" value="option2" ng-click="pnl_t_p_cng(ui.pnl_t_p_cng.pnlCNPJ())">
+                <label class="form-check-label" for="">Pessoa Juridica</label>
+              </div>
+            </div>
+          </div>
+          <painel-t-p></painel-t-p>
+          <painel-p-p></painel-p-p>
+        </div>
+      </div>
+      <div class="row btn-cad-pessoa">
+        <div class="col-xs-9 col-md-4">
+          <button type="button" class="btn btn-outline-primary">Salvar</button>
+          <button type="button" class="btn btn-outline-secondary">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

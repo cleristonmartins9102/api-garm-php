@@ -1,0 +1,47 @@
+pipeline {
+        agent any
+        stages {
+                stage('Init') {
+                        steps {
+                                slackSend (color: '#3498db', message: "Iniciando o Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+                        }
+                }
+                stage('Prepare environmen') {
+                        steps {
+                                sh 'echo Instalando dependência'
+                                sh '''#!/bin/bash 
+                                #sudo npm install -g @angular/cli yes
+                                '''
+                        }
+                }
+                stage('Build') {
+                        steps {
+                                sh 'echo Compilando'
+                                sh '''#!/bin/bash
+                                #ng build --base-href='/arm/'
+                                '''
+                        }
+                }
+                stage('Deploy') {
+                        steps {
+                                sh 'echo Compactando o build'
+                                sh "tar -czvf armazenagem'${BUILD_ID}'.tar.gz *"       
+                                sh 'echo Transferindo para o S3'
+                                sh "aws s3 cp armazenagem'${BUILD_ID}'.tar.gz s3://build-app/back/"
+                                sh 'echo Transferindo para o servidor de aplicação'
+                                sh 'echo Removendo o build compactado'
+                                sh "rm armazenagem'${BUILD_ID}'.tar.gz"
+                                sh "sudo scp -r -i ../../keys/g_general_new.pem * ubuntu@172.30.0.158:/usr/share/sistemas/back"
+                        }
+                }
+        }
+                 post {
+                        success {
+                                slackSend (color: '#00FF00', message: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+                        }
+
+                        failure {
+                                slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+                        }
+                }
+}

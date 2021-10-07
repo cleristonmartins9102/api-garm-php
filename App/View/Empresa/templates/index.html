@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="Assets/css/style.css" rel="stylesheet" />
+  <script src="vendor/components/jquery/jquery.min.js"></script>
+  <script src="vendor/components/angular.js/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js"></script>
+  <script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="Assets/js/validator.min.js"></script>
+
+  <title></title>
+</head>
+
+<body ng-app="appZoho" ng-controller='appZoho'>
+  <div class="container-fluid relative" style="position:absolute">
+    <painel-cadastro-empresa></painel-cadastro-empresa>
+    <div id="top-nav" class="navbar navbar-inverse navbar-static-top">
+      <div class="col-md-12 navbar-header">
+        <a class="navbar-brand" target="newwindow" href=""><img width=180 src="" alt=""></a>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-lg menu">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Empresas
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Contato</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <div class="container painel-empresa">
+      <div class="row ">
+        <div class="col-md-12 label-form">
+          <span class="center-vertical">Formulario {{teste}}</span>
+        </div>
+
+        <div class="col-md-12">
+          <input type="button" class="btn btn-success" name="cadastrar" value="Cadastrar">
+        </div>
+        <div class="col-md-12">
+          <div style="display:block">
+            <div style="clear:both"></div>
+            <div class="table-responsive">
+              <table class="table table-striped" style="width:100%">
+                <thead class="thead-blue">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Endereco</th>
+                    <th scope="col">Numero</th>
+                    <th scope="col">Cep</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="pessoa in pessoas">
+                    <th scope="row">1</th>
+                    <td>{{pessoa.nome}}</td>
+                    <td>{{pessoa.endereco}}</td>
+                    <td>{{pessoa.numero}}</td>
+                    <td>{{pessoa.cep}}</td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="Assets/empresa/js/angular/modules/app.js"></script>
+<script type="text/javascript" src="Assets/empresa/js/angular/control/control.js"></script>
+<script type="text/javascript" src="Assets/empresa/js/angular/directive/directive.js"></script>
+
+</html>
